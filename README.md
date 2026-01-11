@@ -32,10 +32,11 @@ To deploy this application, you will need:
 The login form in `index.php` is vulnerable to SQL injection. To exploit it, you can enter the following in the username field:
 
 ```
-' OR '1'='1
+' OR '1'='1' -- 
 ```
+(Note the two hyphens and a space after the last '1')
 
-And any password in the password field. This will log you in as the first user in the database (in this case, `admin`).
+And any password in the password field. This will log you in as the first user in the database (in this case, `admin`). The `-- ` acts as a SQL comment, ignoring the rest of the query.
 
 ## Fixing the Vulnerability
 
